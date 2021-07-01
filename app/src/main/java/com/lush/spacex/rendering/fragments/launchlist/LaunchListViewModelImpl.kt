@@ -31,6 +31,9 @@ class LaunchListViewModelImpl @Inject constructor(
         .asLiveData(viewModelScope.coroutineContext)
 
     override fun onLaunchDisplayItemClicked(displayItem: LaunchDisplayItem) {
-
+        // Handle this...
+        // I was thinking something along the lines of opening a modal dialog
+        // With "full details" of the launch item that was clicked,
+        // Passing through the id and fetching from dB in the associated dialogs VM
     }
 }
