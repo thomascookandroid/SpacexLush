@@ -7,4 +7,5 @@
     <string name="menu_item_rockets">Rockets</string>
     <string name="successful_launch">Successful Launch</string>
     <string name="failed_launch">Failed Launch</string>
+    <string name="fubar">Uh Oh… Its all gone a bit Pete Tong. Because I have not implemented pull to refresh, please close the app and re-open and/or sacrifice a goat!</string>
 </resources>
