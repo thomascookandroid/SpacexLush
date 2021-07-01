@@ -3,12 +3,7 @@ package com.lush.spacex.rendering.mappers
 import com.lush.spacex.persistance.entities.launch.LaunchEntity
 import com.lush.spacex.rendering.displayItems.LaunchDisplayItem
 import com.lush.spacex.rendering.displayItems.LaunchesDisplayState
-
-interface LaunchDisplayMapper {
-    fun mapToLoadingState(): LaunchesDisplayState.Loading
-    fun mapToErrorState(): LaunchesDisplayState.Failed
-    fun mapToLoadedState(launches: List<LaunchEntity>) : LaunchesDisplayState.Success
-}
+import com.lush.spacex.rendering.interfaces.LaunchDisplayMapper
 
 class LaunchDisplayMapperImpl : LaunchDisplayMapper {
     override fun mapToLoadingState() = LaunchesDisplayState.Loading

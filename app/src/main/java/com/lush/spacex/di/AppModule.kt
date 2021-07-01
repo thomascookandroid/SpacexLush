@@ -2,19 +2,19 @@ package com.lush.spacex.di
 
 import com.lush.spacex.rendering.fragments.rocketdetail.RocketDetailViewModel
 import com.lush.spacex.persistance.database.SpacexDatabase
-import com.lush.spacex.processing.interactors.LaunchInteractor
 import com.lush.spacex.processing.interactors.LaunchInteractorImpl
-import com.lush.spacex.processing.interactors.RocketInteractor
 import com.lush.spacex.processing.interactors.RocketInteractorImpl
-import com.lush.spacex.processing.mappers.LaunchMapper
-import com.lush.spacex.processing.mappers.RocketDetailMapper
-import com.lush.spacex.remote.api.SpacexRemote
-import com.lush.spacex.rendering.fragments.launchlist.LaunchListViewModel
+import com.lush.spacex.processing.interfaces.LaunchInteractor
+import com.lush.spacex.processing.interfaces.LaunchMapper
+import com.lush.spacex.processing.interfaces.RocketInteractor
+import com.lush.spacex.processing.interfaces.RocketMapper
+import com.lush.spacex.remote.interfaces.SpacexRemote
 import com.lush.spacex.rendering.fragments.launchlist.LaunchListViewModelImpl
-import com.lush.spacex.rendering.fragments.rocketlist.RocketListViewModel
 import com.lush.spacex.rendering.fragments.rocketlist.RocketListViewModelImpl
-import com.lush.spacex.rendering.mappers.LaunchDisplayMapper
-import com.lush.spacex.rendering.mappers.RocketEntityMapper
+import com.lush.spacex.rendering.interfaces.LaunchDisplayMapper
+import com.lush.spacex.rendering.interfaces.LaunchListViewModel
+import com.lush.spacex.rendering.interfaces.RocketDisplayMapper
+import com.lush.spacex.rendering.interfaces.RocketListViewModel
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -28,7 +28,7 @@ class AppModule {
     fun provideRocketInteractor(
         spacexDatabase: SpacexDatabase,
         spacexRemote: SpacexRemote,
-        rocketDetailMapper: RocketDetailMapper
+        rocketDetailMapper: RocketMapper
     ) : RocketInteractor = RocketInteractorImpl(
         spacexDatabase,
         spacexRemote,
@@ -57,7 +57,7 @@ class AppModule {
     @Provides
     fun provideRocketListViewModel(
         interactor: RocketInteractor,
-        rocketEntityMapper: RocketEntityMapper
+        rocketEntityMapper: RocketDisplayMapper
     ) : RocketListViewModel = RocketListViewModelImpl(
         interactor,
         rocketEntityMapper

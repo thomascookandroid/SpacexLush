@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.lush.spacex.databinding.FragmentListBinding
 import com.lush.spacex.rendering.adapters.LaunchListAdapter
 import com.lush.spacex.rendering.displayItems.LaunchesDisplayState
+import com.lush.spacex.rendering.interfaces.LaunchListViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 

@@ -1,13 +1,13 @@
 package com.lush.spacex.di
 
-import com.lush.spacex.processing.mappers.LaunchMapper
+import com.lush.spacex.processing.interfaces.LaunchMapper
+import com.lush.spacex.processing.interfaces.RocketMapper
 import com.lush.spacex.processing.mappers.LaunchMapperImpl
-import com.lush.spacex.processing.mappers.RocketDetailMapper
-import com.lush.spacex.processing.mappers.RocketDetailMapperImpl
-import com.lush.spacex.rendering.mappers.LaunchDisplayMapper
+import com.lush.spacex.processing.mappers.RocketMapperImpl
+import com.lush.spacex.rendering.interfaces.LaunchDisplayMapper
+import com.lush.spacex.rendering.interfaces.RocketDisplayMapper
 import com.lush.spacex.rendering.mappers.LaunchDisplayMapperImpl
-import com.lush.spacex.rendering.mappers.RocketEntityMapper
-import com.lush.spacex.rendering.mappers.RocketEntityMapperImpl
+import com.lush.spacex.rendering.mappers.RocketDisplayMapperImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class MapperModule {
     @Provides
     @Singleton
-    fun provideRocketDetailMapper(): RocketDetailMapper = RocketDetailMapperImpl()
+    fun provideRocketMapper(): RocketMapper = RocketMapperImpl()
 
     @Provides
     @Singleton
@@ -24,9 +24,9 @@ class MapperModule {
 
     @Provides
     @Singleton
-    fun provideRocketEntityMapper(): RocketEntityMapper = RocketEntityMapperImpl()
+    fun provideRocketDisplayMapper(): RocketDisplayMapper = RocketDisplayMapperImpl()
 
     @Provides
     @Singleton
-    fun provideLaunchEntityMapper(): LaunchDisplayMapper = LaunchDisplayMapperImpl()
+    fun provideLaunchDisplayMapper(): LaunchDisplayMapper = LaunchDisplayMapperImpl()
 }

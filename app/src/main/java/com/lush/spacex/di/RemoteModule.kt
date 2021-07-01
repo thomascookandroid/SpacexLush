@@ -1,7 +1,7 @@
 package com.lush.spacex.di
 
-import com.lush.spacex.remote.api.SpacexRemote
 import com.lush.spacex.remote.api.SpacexRemoteImpl
+import com.lush.spacex.remote.interfaces.SpacexRemote
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapters.Rfc3339DateJsonAdapter
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

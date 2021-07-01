@@ -1,13 +1,10 @@
 package com.lush.spacex.processing.mappers
 
 import com.lush.spacex.persistance.entities.rocket.*
+import com.lush.spacex.processing.interfaces.RocketMapper
 import com.lush.spacex.remote.models.rocket.RocketDetail
 
-interface RocketDetailMapper{
-    fun mapRemoteModelToPersistenceModel(rocket: RocketDetail) : RocketEntity
-}
-
-class RocketDetailMapperImpl : RocketDetailMapper{
+class RocketMapperImpl : RocketMapper {
     override fun mapRemoteModelToPersistenceModel(rocket: RocketDetail) : RocketEntity {
         return RocketEntity(
             id = rocket.id,

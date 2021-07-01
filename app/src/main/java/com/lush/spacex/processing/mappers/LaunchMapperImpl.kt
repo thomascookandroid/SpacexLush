@@ -1,12 +1,9 @@
 package com.lush.spacex.processing.mappers
 
 import com.lush.spacex.persistance.entities.launch.*
+import com.lush.spacex.processing.interfaces.LaunchMapper
 import com.lush.spacex.remote.models.launch.Launch
 import java.util.*
-
-interface LaunchMapper {
-    fun mapRemoteModelToPersistenceModel(launch: Launch) : LaunchEntity
-}
 
 class LaunchMapperImpl : LaunchMapper {
     override fun mapRemoteModelToPersistenceModel(launch: Launch) : LaunchEntity {

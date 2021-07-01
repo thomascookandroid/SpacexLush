@@ -2,10 +2,8 @@ package com.lush.spacex.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.lush.spacex.rendering.fragments.launchlist.LaunchListViewModel
 import com.lush.spacex.rendering.fragments.launchlist.LaunchListViewModelImpl
 import com.lush.spacex.rendering.fragments.rocketdetail.RocketDetailViewModel
-import com.lush.spacex.rendering.fragments.rocketlist.RocketListViewModel
 import com.lush.spacex.rendering.fragments.rocketlist.RocketListViewModelImpl
 import dagger.Binds
 import dagger.Module
