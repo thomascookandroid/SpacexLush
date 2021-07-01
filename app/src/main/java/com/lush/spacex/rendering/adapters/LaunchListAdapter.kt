@@ -124,7 +124,10 @@ class LaunchListAdapter(
         private fun bindSuccess(
             latestItem: LaunchDisplayItem
         ) {
-            binding.success.text = latestItem.success.toString()
+            binding.success.text = when (latestItem.success) {
+                true -> binding.root.context.getString(R.string.successful_launch)
+                else -> binding.root.context.getString(R.string.failed_launch)
+            }
         }
 
         private fun bindImage(

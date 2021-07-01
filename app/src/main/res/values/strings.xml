@@ -5,4 +5,6 @@
     <string name="menu_title">Menu</string>
     <string name="menu_item_launches">Launches</string>
     <string name="menu_item_rockets">Rockets</string>
+    <string name="successful_launch">Successful Launch</string>
+    <string name="failed_launch">Failed Launch</string>
 </resources>
