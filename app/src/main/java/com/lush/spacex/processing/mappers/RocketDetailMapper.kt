@@ -3,8 +3,12 @@ package com.lush.spacex.processing.mappers
 import com.lush.spacex.persistance.entities.rocket.*
 import com.lush.spacex.remote.models.rocket.RocketDetail
 
-class RocketDetailMapper {
-    fun mapRemoteModelToPersistenceModel(rocket: RocketDetail) : RocketEntity {
+interface RocketDetailMapper{
+    fun mapRemoteModelToPersistenceModel(rocket: RocketDetail) : RocketEntity
+}
+
+class RocketDetailMapperImpl : RocketDetailMapper{
+    override fun mapRemoteModelToPersistenceModel(rocket: RocketDetail) : RocketEntity {
         return RocketEntity(
             id = rocket.id,
             height = rocket.height.let { toMapSizeDim ->

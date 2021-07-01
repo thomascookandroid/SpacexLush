@@ -1,5 +1,6 @@
 package com.lush.spacex.rendering.fragments.rocketlist
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -7,15 +8,22 @@ import com.lush.spacex.persistance.entities.rocket.RocketEntity
 import com.lush.spacex.processing.interactors.RocketInteractor
 import com.lush.spacex.processing.models.LoadingState
 import com.lush.spacex.rendering.displayItems.RocketDisplayItem
+import com.lush.spacex.rendering.displayItems.RocketsDisplayState
 import com.lush.spacex.rendering.mappers.RocketEntityMapper
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class RocketListViewModel(
-    private val interactor: RocketInteractor,
+interface RocketListViewModel {
+    val rocketsLoadState: LiveData<RocketsDisplayState>
+    fun onRocketDisplayItemClicked(displayItem: RocketDisplayItem)
+}
+
+class RocketListViewModelImpl @Inject constructor(
+    interactor: RocketInteractor,
     private val rocketEntityMapper: RocketEntityMapper
-) : ViewModel() {
+) : ViewModel(), RocketListViewModel {
 
-    val rocketsLoadState = interactor.fetchRocketList()
+    override val rocketsLoadState = interactor.rocketListLoad()
         .map { rocketEntitiesLoadingState ->
             when (rocketEntitiesLoadingState) {
                 is LoadingState.Loading ->
@@ -28,7 +36,7 @@ class RocketListViewModel(
         }
         .asLiveData(viewModelScope.coroutineContext)
 
-    fun onRocketDisplayItemClicked(displayItem: RocketDisplayItem) {
+    override fun onRocketDisplayItemClicked(displayItem: RocketDisplayItem) {
 
     }
 }

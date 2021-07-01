@@ -5,11 +5,11 @@ import java.util.*
 sealed class RocketsDisplayState {
     data class Success(
         val items: List<RocketDisplayItem>
-    ) : LaunchesDisplayState()
+    ) : RocketsDisplayState()
 
-    object Loading : LaunchesDisplayState()
+    object Loading : RocketsDisplayState()
 
-    object Failed : LaunchesDisplayState()
+    object Failed : RocketsDisplayState()
 }
 
 data class RocketDisplayItem(

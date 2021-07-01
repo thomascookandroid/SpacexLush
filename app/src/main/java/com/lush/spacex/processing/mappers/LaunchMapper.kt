@@ -4,8 +4,12 @@ import com.lush.spacex.persistance.entities.launch.*
 import com.lush.spacex.remote.models.launch.Launch
 import java.util.*
 
-class LaunchMapper {
-    fun mapRemoteModelToPersistenceModel(launch: Launch) : LaunchEntity {
+interface LaunchMapper {
+    fun mapRemoteModelToPersistenceModel(launch: Launch) : LaunchEntity
+}
+
+class LaunchMapperImpl : LaunchMapper {
+    override fun mapRemoteModelToPersistenceModel(launch: Launch) : LaunchEntity {
         return LaunchEntity(
             flightNumber = launch.flightNumber,
             name = launch.name,

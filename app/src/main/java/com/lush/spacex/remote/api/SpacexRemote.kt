@@ -7,24 +7,30 @@ import retrofit2.HttpException
 import retrofit2.Response
 import retrofit2.Retrofit
 
-class SpacexRemote(
+interface SpacexRemote {
+    suspend fun fetchRockets() : Result<List<RocketDetail>>
+    suspend fun fetchPastLaunches() : Result<List<Launch>>
+    suspend fun fetchFutureLaunches() : Result<List<Launch>>
+}
+
+class SpacexRemoteImpl(
     private val retrofit: Retrofit
-) {
-    suspend fun fetchRockets() : Result<List<RocketDetail>> {
+) : SpacexRemote {
+    override suspend fun fetchRockets() : Result<List<RocketDetail>> {
         val spacexService = retrofit.create(SpacexService::class.java)
         return getResponse {
             spacexService.rockets()
         }
     }
 
-    suspend fun fetchPastLaunches() : Result<List<Launch>> {
+    override suspend fun fetchPastLaunches() : Result<List<Launch>> {
         val spacexService = retrofit.create(SpacexService::class.java)
         return getResponse {
             spacexService.pastLaunches()
         }
     }
 
-    suspend fun fetchFutureLaunches() : Result<List<Launch>> {
+    override suspend fun fetchFutureLaunches() : Result<List<Launch>> {
         val spacexService = retrofit.create(SpacexService::class.java)
         return getResponse {
             spacexService.futureLaunches()

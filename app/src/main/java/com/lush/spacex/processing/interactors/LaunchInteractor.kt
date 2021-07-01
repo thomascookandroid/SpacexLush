@@ -11,14 +11,18 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-private const val TAG = "LaunchInteractor"
+private const val TAG = "LaunchInteractorImpl"
 
-class LaunchInteractor(
+interface LaunchInteractor {
+    fun launchEntityLoad() : Flow<LoadingState<List<LaunchEntity>>>
+}
+
+class LaunchInteractorImpl(
     private val spacexDatabase: SpacexDatabase,
     private val spacexRemote: SpacexRemote,
     private val launchMapper: LaunchMapper
-) {
-    fun launchEntityLoad() : Flow<LoadingState<List<LaunchEntity>>> {
+) : LaunchInteractor {
+    override fun launchEntityLoad() : Flow<LoadingState<List<LaunchEntity>>> {
         return flow {
             emit(LoadingState.Loading)
 

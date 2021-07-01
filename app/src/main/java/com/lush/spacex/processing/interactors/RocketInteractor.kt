@@ -11,14 +11,18 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-private const val TAG = "RocketInteractor"
+private const val TAG = "RocketInteractorImpl"
 
-class RocketInteractor(
+interface RocketInteractor {
+    fun rocketListLoad() : Flow<LoadingState<List<RocketEntity>>>
+}
+
+class RocketInteractorImpl(
     private val spacexDatabase: SpacexDatabase,
     private val spacexRemote: SpacexRemote,
     private val rocketDetailMapper: RocketDetailMapper
-) {
-    fun fetchRocketList() : Flow<LoadingState<List<RocketEntity>>> {
+) : RocketInteractor {
+    override fun rocketListLoad() : Flow<LoadingState<List<RocketEntity>>> {
         return flow {
             emit(LoadingState.Loading)
 

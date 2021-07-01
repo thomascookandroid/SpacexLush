@@ -4,12 +4,18 @@ import com.lush.spacex.persistance.entities.rocket.RocketEntity
 import com.lush.spacex.rendering.displayItems.RocketDisplayItem
 import com.lush.spacex.rendering.displayItems.RocketsDisplayState
 
-class RocketEntityMapper {
-    fun mapToLoadingState() = RocketsDisplayState.Loading
+interface RocketEntityMapper {
+    fun mapToLoadingState(): RocketsDisplayState.Loading
+    fun mapToErrorState(): RocketsDisplayState.Failed
+    fun mapToLoadedState(rockets: List<RocketEntity>): RocketsDisplayState.Success
+}
 
-    fun mapToErrorState() = RocketsDisplayState.Failed
+class RocketEntityMapperImpl : RocketEntityMapper {
+    override fun mapToLoadingState() = RocketsDisplayState.Loading
 
-    fun mapToLoadedState(
+    override fun mapToErrorState() = RocketsDisplayState.Failed
+
+    override fun mapToLoadedState(
         rockets: List<RocketEntity>
     ) = RocketsDisplayState.Success(
         rockets.map { rocket ->

@@ -33,7 +33,7 @@ class RocketListFragment : Fragment() {
     ): View {
         viewModelProvider = ViewModelProvider(this, viewModelFactory)
 
-        rocketListViewModel = viewModelProvider.get(RocketListViewModel::class.java)
+        rocketListViewModel = viewModelProvider.get(RocketListViewModelImpl::class.java)
 
         val binding = FragmentListBinding.inflate(inflater, container, false)
 

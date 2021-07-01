@@ -3,12 +3,16 @@ package com.lush.spacex.di
 import com.lush.spacex.rendering.fragments.rocketdetail.RocketDetailViewModel
 import com.lush.spacex.persistance.database.SpacexDatabase
 import com.lush.spacex.processing.interactors.LaunchInteractor
+import com.lush.spacex.processing.interactors.LaunchInteractorImpl
 import com.lush.spacex.processing.interactors.RocketInteractor
+import com.lush.spacex.processing.interactors.RocketInteractorImpl
 import com.lush.spacex.processing.mappers.LaunchMapper
 import com.lush.spacex.processing.mappers.RocketDetailMapper
 import com.lush.spacex.remote.api.SpacexRemote
 import com.lush.spacex.rendering.fragments.launchlist.LaunchListViewModel
+import com.lush.spacex.rendering.fragments.launchlist.LaunchListViewModelImpl
 import com.lush.spacex.rendering.fragments.rocketlist.RocketListViewModel
+import com.lush.spacex.rendering.fragments.rocketlist.RocketListViewModelImpl
 import com.lush.spacex.rendering.mappers.LaunchDisplayMapper
 import com.lush.spacex.rendering.mappers.RocketEntityMapper
 import dagger.Module
@@ -25,7 +29,7 @@ class AppModule {
         spacexDatabase: SpacexDatabase,
         spacexRemote: SpacexRemote,
         rocketDetailMapper: RocketDetailMapper
-    ) : RocketInteractor = RocketInteractor(
+    ) : RocketInteractor = RocketInteractorImpl(
         spacexDatabase,
         spacexRemote,
         rocketDetailMapper
@@ -37,7 +41,7 @@ class AppModule {
         spacexDatabase: SpacexDatabase,
         spacexRemote: SpacexRemote,
         launchMapper: LaunchMapper
-    ) : LaunchInteractor = LaunchInteractor(
+    ) : LaunchInteractor = LaunchInteractorImpl(
         spacexDatabase,
         spacexRemote,
         launchMapper
@@ -54,7 +58,7 @@ class AppModule {
     fun provideRocketListViewModel(
         interactor: RocketInteractor,
         rocketEntityMapper: RocketEntityMapper
-    ) : RocketListViewModel = RocketListViewModel(
+    ) : RocketListViewModel = RocketListViewModelImpl(
         interactor,
         rocketEntityMapper
     )
@@ -63,7 +67,7 @@ class AppModule {
     fun provideLaunchListViewModel(
         interactor: LaunchInteractor,
         launchDisplayMapper: LaunchDisplayMapper
-    ) : LaunchListViewModel = LaunchListViewModel(
+    ) : LaunchListViewModel = LaunchListViewModelImpl(
         interactor,
         launchDisplayMapper
     )

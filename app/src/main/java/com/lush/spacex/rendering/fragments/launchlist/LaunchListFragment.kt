@@ -33,7 +33,7 @@ class LaunchListFragment : Fragment() {
     ): View {
         viewModelProvider = ViewModelProvider(this, viewModelFactory)
 
-        launchListViewModel = viewModelProvider.get(LaunchListViewModel::class.java)
+        launchListViewModel = viewModelProvider.get(LaunchListViewModelImpl::class.java)
 
         val binding = FragmentListBinding.inflate(inflater, container, false)
 
