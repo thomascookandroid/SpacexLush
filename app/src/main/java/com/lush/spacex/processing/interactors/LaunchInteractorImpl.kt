@@ -4,7 +4,7 @@ import android.util.Log
 import com.lush.spacex.persistance.database.SpacexDatabase
 import com.lush.spacex.persistance.entities.launch.LaunchEntity
 import com.lush.spacex.processing.interfaces.LaunchInteractor
-import com.lush.spacex.processing.mappers.LaunchMapper
+import com.lush.spacex.processing.interfaces.LaunchMapper
 import com.lush.spacex.processing.models.LoadingState
 import com.lush.spacex.remote.interfaces.SpacexRemote
 import kotlinx.coroutines.Dispatchers

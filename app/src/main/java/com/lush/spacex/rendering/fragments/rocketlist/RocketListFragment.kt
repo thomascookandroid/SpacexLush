@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.lush.spacex.databinding.FragmentListBinding
 import com.lush.spacex.rendering.adapters.RocketListAdapter
 import com.lush.spacex.rendering.displayItems.RocketsDisplayState
+import com.lush.spacex.rendering.interfaces.RocketListViewModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 

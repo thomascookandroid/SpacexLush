@@ -4,7 +4,7 @@ import android.util.Log
 import com.lush.spacex.persistance.database.SpacexDatabase
 import com.lush.spacex.persistance.entities.rocket.RocketEntity
 import com.lush.spacex.processing.interfaces.RocketInteractor
-import com.lush.spacex.processing.mappers.RocketDetailMapper
+import com.lush.spacex.processing.interfaces.RocketMapper
 import com.lush.spacex.processing.models.LoadingState
 import com.lush.spacex.remote.interfaces.SpacexRemote
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +17,7 @@ private const val TAG = "RocketInteractorImpl"
 class RocketInteractorImpl(
     private val spacexDatabase: SpacexDatabase,
     private val spacexRemote: SpacexRemote,
-    private val rocketDetailMapper: RocketDetailMapper
+    private val rocketDetailMapper: RocketMapper
 ) : RocketInteractor {
     override fun rocketListLoad() : Flow<LoadingState<List<RocketEntity>>> {
         return flow {
