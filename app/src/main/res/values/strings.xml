@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SpaceX</string>
+    <string name="nav_header_title">SpaceX Navigation</string>
+    <string name="nav_header_subtitle">Choose Your Own Space Adventure</string>
+    <string name="menu_title">Menu</string>
+    <string name="menu_item_launches">Launches</string>
+    <string name="menu_item_rockets">Rockets</string>
+</resources>

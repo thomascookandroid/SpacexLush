@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme colors -->
+    <color name="theme_primary">#30333E</color>
+    <color name="theme_secondary">#21232B</color>
+    <color name="theme_highlight">#5E6375</color>
+
+    <!-- Text colors -->
+    <color name="text_white">#FFFFFFFF</color>
+
+    <!-- Progress colors -->
+    <color name="progress_white">#FFFFFFFF</color>
+    <color name="progress_white_alpha">#43FFFFFF</color>
+</resources>

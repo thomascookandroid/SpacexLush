@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/card_margin"
+    android:layout_marginTop="@dimen/card_margin"
+    android:layout_marginEnd="@dimen/card_margin"
+    app:rippleColor="@color/theme_highlight"
+    app:cardBackgroundColor="@color/theme_primary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/launchImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/detailsContainer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_margin="@dimen/card_margin"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/detailsContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@+id/launchImage"
+            app:layout_constraintTop_toTopOf="@+id/launchImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/launchImage"
+            android:layout_marginEnd="@dimen/card_margin">
+
+            <TextView
+                android:id="@+id/launchName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/text_white"
+                tools:text="Falcon 9 Test Flight" />
+
+            <TextView
+                android:id="@+id/launchDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:textAllCaps="false"
+                android:textColor="@color/text_white"
+                tools:text="Launch Date: 24-03-2021" />
+
+            <TextView
+                android:id="@+id/success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin"
+                android:textStyle="italic"
+                android:textAllCaps="false"
+                android:textColor="@color/text_white"
+                tools:text="Mission Success: x"  />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
